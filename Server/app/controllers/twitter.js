@@ -1,7 +1,10 @@
-const config  = require('../config');
 const Twit    = require('twit');
+const config  = require('../app.config');
 
-const client = new Twit(
+/**
+ * Initializes the twitter client with the api access info
+ */
+const twitClient = new Twit(
   config
 );
 
@@ -12,15 +15,38 @@ module.exports = {
    * @param  {Object} tweet Tweet information
    * @return {Object}       Error or success message
    */
-  createTweet : (params) => {
+  createTweet: (params) => {
     const videoUrl  = params.videoUrl;
     const comment   = params.comment;
     const tweet     = {
       status: comment + ' #Nowplaying ' + videoUrl
-    }
+    };
 
     return new Promise((resolve, reject) => {
-      client.post('statuses/update', tweet, (error, data, response) => {
+      twitClient.post('statuses/update', tweet, (error, data, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
+    });
+  },
+
+  /**
+   * Calls the Twitter API to search 5 tweets that contain
+   * a youtube link and the #nowplaying hashtag
+   * @param  {Object} tweet search information
+   * @return {Object}       Error message or tweets info
+   */
+  searchTweets: () => {
+    const search = {
+      q: '#nowplaying+youtube.com/watch',
+      count: 5
+    };
+
+    return new Promise((resolve, reject) => {
+      twitClient.get('search/tweets', search, (error, data, response) => {
         if (error) {
           reject(error);
         } else {
