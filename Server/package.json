@@ -1,0 +1,21 @@
+{
+  "name": "nowplaying-server",
+  "version": "1.0.0",
+  "description": "Server-side that manages every transaction with the twitter API.",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joselito12344/NowPlaying.git"
+  },
+  "author": "Jose Ospina",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "twit": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
