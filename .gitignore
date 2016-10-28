@@ -1,3 +1,5 @@
 Client/dist
 Client/node_modules
+Client/npm-debug.log
 Server/node_modules
+Server/npm-debug.log
