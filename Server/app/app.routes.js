@@ -19,7 +19,7 @@ routes.post('/update', (req, res) => {
 /**
  * Defines what to do when "/search" is accessed
  */
-routes.post('/search', (req, res) => {
+routes.get('/search', (req, res) => {
   twitter.searchTweets()
     .then((response) => {
       res.json(response);
