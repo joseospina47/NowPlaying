@@ -63,7 +63,7 @@ if (isProd) {
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: 'file-loader'
+        loader: 'file'
       },
       {
         test: /\.html$/,
@@ -92,8 +92,7 @@ if (isProd) {
       inject: 'body'
     }),
     new ExtractTextPlugin('[name].[hash].css', {disable: !isProd}),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
-    new ProvidePlugin({ Highcharts: "highcharts" })
+    new OpenBrowserPlugin({ url: 'http://localhost:8080' })
   )
 
 
