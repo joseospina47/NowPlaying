@@ -24,7 +24,7 @@ module.exports = function makeWebpackConfig () {
    * Entry
    */
   config.entry = {
-    app: './src/js/app.config.js'
+    app: './app/js/app.js'
   };
 
   /**
@@ -88,7 +88,7 @@ if (isProd) {
 
   config.plugins.push(
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './app/index.html',
       inject: 'body'
     }),
     new ExtractTextPlugin('[name].[hash].css', {disable: !isProd}),

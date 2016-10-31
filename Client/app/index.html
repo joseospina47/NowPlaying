@@ -8,8 +8,8 @@
 		<title>#Nowplaying</title>
 	</head>
 	<body>
-		<div class="container">
-      
+		<div class="container" data-ng-controller="Twitter as twitter">
+
 			<header class="row">
 				<div class="col-xs-12">
 					<h1>#nowplaying</h1>
@@ -20,15 +20,15 @@
 			<hr>
 			<nav class="row">
 				<div class="col-xs-12">
-					<form class="panel-body">
+					<form class="panel-body" name="tweetForm">
 						<div class="form-group col-xs-4">
-							<input type="text" class="form-control" name="videoUrl" placeholder="Video Url">
+							<input type="text" class="form-control" name="videoUrl" placeholder="Video Url" data-ng-model="twitter.formData.videoUrl">
 						</div>
 						<div class="form-group col-xs-6">
-							<input type="text" class="form-control" name="comment" placeholder="Comment">
+							<input type="text" class="form-control" name="comment" placeholder="Comment" data-ng-model="twitter.formData.comment">
 						</div>
 						<div class="form-group col-xs-2">
-							<button type="submit" class="btn btn-primary form-group">
+							<button type="button" class="btn btn-primary form-group" ng-click="twitter.createTweet()">
   							<i class="fa fa-twitter"></i>
   							Tweet to #nowplaying
 							</button>
