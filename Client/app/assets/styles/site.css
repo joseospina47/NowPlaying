@@ -6,3 +6,8 @@
 body{
   font-family: 'Roboto', sans-serif;
 }
+
+.tweet_container{
+  height: 540px !important;
+  margin-bottom:  30px;
+}

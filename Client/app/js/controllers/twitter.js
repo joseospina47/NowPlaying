@@ -4,7 +4,8 @@
 class Twitter {
 
   constructor(twitterService) {
-    this.formData = {};
+    this.formData       = {};
+    this.tweets         = {};
     this.twitterService = twitterService;
     this.searchTweets();
   }
@@ -13,26 +14,25 @@ class Twitter {
    * Sends the the tweet info to the twitterService
    * and handles the GUI response.
    */
-  createTweet() {
+  createTweet(form) {
     this.twitterService.createTweet(this.formData)
       .then((response) => {
-        this.formData = {};
-        console.log(response);
+        this.formData   = {};
+        this.searchTweets();
       })
       .catch((error) => {
         console.log('Error: ' + error);
       });
   }
 
-	/**
-	 * Calls the twitter service to geet the tweets
-	 * and displays the on the GUI.
-	 */
+  /**
+   * Calls the twitter service to geet the tweets
+   * and displays the on the GUI.
+   */
   searchTweets() {
     this.twitterService.searchTweets()
       .then((response) => {
-        this.formData = {};
-        console.log(response);
+        this.tweets = response.data.data.statuses;
       })
       .catch((error) => {
         console.log('Error: ' + error);

@@ -27,8 +27,8 @@ module.exports = {
    */
   searchTweets: () => {
     const search = {
-      q: '#nowplaying+youtube.com/watch',
-      count: 5
+      q: '#Nowplaying+#nowplaying+youtube.com/watch',
+      count: 6
     };
     return twitClient.get('search/tweets', search)
   }

@@ -22,13 +22,15 @@
 				<div class="col-xs-12">
 					<form class="panel-body" name="tweetForm">
 						<div class="form-group col-xs-4">
-							<input type="text" class="form-control" name="videoUrl" placeholder="Video Url" data-ng-model="twitter.formData.videoUrl">
+							<input type="text" class="form-control" name="videoUrl" required placeholder="Video Url" data-ng-model="twitter.formData.videoUrl">
+							<span class="label label-danger" ng-if="twitter.submitted && tweetForm.videoUrl.$error.required">Required</span>
 						</div>
 						<div class="form-group col-xs-6">
-							<input type="text" class="form-control" name="comment" placeholder="Comment" data-ng-model="twitter.formData.comment">
+							<input type="text" class="form-control" name="comment" required placeholder="Comment" data-ng-model="twitter.formData.comment">
+							<span class="label label-danger" ng-if="twitter.submitted && tweetForm.comment.$error.required">Required</span>
 						</div>
 						<div class="form-group col-xs-2">
-							<button type="button" class="btn btn-primary form-group" ng-click="twitter.createTweet()">
+							<button type="button" class="btn btn-primary form-group" ng-click="twitter.createTweet(tweetForm)">
   							<i class="fa fa-twitter"></i>
   							Tweet to #nowplaying
 							</button>
@@ -39,6 +41,11 @@
 
 			<hr>
 			<section>
+				<div class="row">
+					<div class="col-sm-6 tweet_container" ng-repeat="tweet in twitter.tweets track by tweet.id">
+						<twitter-widget twitter-widget-id="tweet.id_str"></twitter-widget>
+					</div>
+				</div>
 			</section>
 
 		</div>
