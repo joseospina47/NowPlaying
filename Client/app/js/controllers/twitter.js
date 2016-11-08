@@ -11,7 +11,7 @@ class Twitter {
   }
 
   /**
-   * Sends the the tweet info to the twitterService
+   * Sends the tweet info to the twitterService
    * and handles the GUI response.
    */
   createTweet(form) {
@@ -26,8 +26,8 @@ class Twitter {
   }
 
   /**
-   * Calls the twitter service to geet the tweets
-   * and displays the on the GUI.
+   * Calls the twitter service to get the tweets
+   * and displays the info on the GUI.
    */
   searchTweets() {
     this.twitterService.searchTweets()
