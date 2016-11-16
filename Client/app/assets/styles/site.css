@@ -7,7 +7,38 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
+/** Tweets **/
+.tweet_grid_container{
+  text-align: center;
+}
+
 .tweet_container{
-  height: 540px !important;
-  margin-bottom:  30px;
+  display: inline-block;
+  float: inherit;
+  vertical-align: top;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+
+/** Responsive **/
+@media (max-width: 1200px) {
+  .form_comment {
+    width: 33.33333333%;
+  }
+  .form_button {
+    width: 33.33333333%;
+  }
+}
+
+@media (max-width: 620px) {
+  .form_video_url, .form_comment  {
+    width:100%;
+    margin-bottom: 10px;
+  }
+  .form_button {
+    width:100%;
+  }
 }
